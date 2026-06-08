@@ -10,29 +10,29 @@ const gifStages = [
 ]
 
 const noMessages = [
-    "No",
-    "Are you positive? 🤔",
-    "Pookie please... 🥺",
-    "If you say no, I will be really sad...",
-    "I will be very sad... 😢",
-    "Please??? 💔",
-    "Don't do this to me...",
-    "Last chance! 😭",
-    "You can't catch me anyway 😜"
+    "Không",
+    "Chắc chưa á? 🤔",
+    "Thật sự không muốn à... 🥺",
+    "Anh sẽ buồn lắm đấy...",
+    "Đừng ấn nữa mà 😢",
+    "Đi mà??? 💔",
+    "Nghĩ lại đi!",
+    "Cơ hội cuối đấy! 😭",
+    "Đố em bắt được anh =)))"
 ]
 
 const yesTeasePokes = [
-    "try saying no first... I bet you want to know what happens 😏",
-    "go on, hit no... just once 👀",
-    "you're missing out 😈",
-    "click no, I dare you 😏"
+    "Thử ấn Không trước xem... có điều bất ngờ đấy 😏",
+    "Ấn thử nút Không một lần xem sao 👀",
+    "Không ấn là tiếc ráng chịu 😈",
+    "Đố em dám ấn Không 😏"
 ]
 
 let yesTeasedCount = 0
 
 let noClickCount = 0
 let runawayEnabled = false
-let musicPlaying = true
+let musicPlaying = false
 
 const catGif = document.getElementById('cat-gif')
 const yesBtn = document.getElementById('yes-btn')
