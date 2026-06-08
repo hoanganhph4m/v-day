@@ -91,7 +91,7 @@ function handleNoClick() {
     const msgIndex = Math.min(noClickCount, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
-    // --- ĐOẠN ĐƯỢC SỬA BẮT ĐẦU TỪ ĐÂY ---
+    // --- ĐOẠN 1: SỬA KÍCH THƯỚC NÚT "YES" TRÊN MOBILE ---
     // Grow the Yes button bigger each time (Giới hạn kích thước trên mobile)
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
     
@@ -107,6 +107,7 @@ function handleNoClick() {
     // Đảm bảo nút không bao giờ vượt quá chiều rộng màn hình (90% width)
     yesBtn.style.maxWidth = '90vw'
     yesBtn.style.wordWrap = 'break-word'
+    // --- KẾT THÚC ĐOẠN 1 ---
 
     // Shrink No button to contrast
     if (noClickCount >= 2) {
@@ -118,11 +119,16 @@ function handleNoClick() {
     const gifIndex = Math.min(noClickCount, gifStages.length - 1)
     swapGif(gifStages[gifIndex])
 
-    // Runaway starts at click 5
-    if (noClickCount >= 5 && !runawayEnabled) {
+    // --- ĐOẠN 2: SỬA ĐIỀU KIỆN BAY NHẢY CHỈ CHẠY KHI ĐẾN CÂU CUỐI CÙNG ---
+    // Lấy vị trí của câu thoại cuối cùng trong danh sách của bạn
+    const lastMessageIndex = noMessages.length - 1;
+
+    // Runaway (bay nhảy) chỉ bắt đầu khi Phương Anh đã nhìn thấy câu thoại cuối cùng
+    if (noClickCount >= lastMessageIndex && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
+    // --- KẾT THÚC ĐOẠN 2 ---
 }
 
 function swapGif(src) {
