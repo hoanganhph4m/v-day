@@ -91,12 +91,22 @@ function handleNoClick() {
     const msgIndex = Math.min(noClickCount, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
-    // Grow the Yes button bigger each time
+    // --- ĐOẠN ĐƯỢC SỬA BẮT ĐẦU TỪ ĐÂY ---
+    // Grow the Yes button bigger each time (Giới hạn kích thước trên mobile)
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
-    yesBtn.style.fontSize = `${currentSize * 1.35}px`
-    const padY = Math.min(18 + noClickCount * 5, 60)
-    const padX = Math.min(45 + noClickCount * 10, 120)
+    
+    // Giới hạn font chữ to nhất là khoảng 80px
+    const newSize = Math.min(currentSize * 1.35, 80)
+    yesBtn.style.fontSize = `${newSize}px`
+    
+    // Giới hạn padding để nút không bị phình quá to
+    const padY = Math.min(18 + noClickCount * 5, 40) 
+    const padX = Math.min(45 + noClickCount * 10, 80)
     yesBtn.style.padding = `${padY}px ${padX}px`
+    
+    // Đảm bảo nút không bao giờ vượt quá chiều rộng màn hình (90% width)
+    yesBtn.style.maxWidth = '90vw'
+    yesBtn.style.wordWrap = 'break-word'
 
     // Shrink No button to contrast
     if (noClickCount >= 2) {
@@ -125,10 +135,15 @@ function swapGif(src) {
 
 function enableRunaway() {
     noBtn.addEventListener('mouseover', runAway)
-    noBtn.addEventListener('touchstart', runAway, { passive: true })
+    noBtn.addEventListener('touchstart', runAway)
 }
 
-function runAway() {
+function runAway(e) {
+    // Nếu là thao tác chạm trên điện thoại, chặn ngay cú "Ghost Click"
+    if (e) {
+        e.preventDefault() 
+    }
+
     const margin = 20
     const btnW = noBtn.offsetWidth
     const btnH = noBtn.offsetHeight
