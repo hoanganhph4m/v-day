@@ -16,8 +16,6 @@ const noMessages = [
     "Anh sẽ buồn lắm đấy...",
     "Đừng ấn nữa mà 😢",
     "Đi mà??? 💔",
-    "Nghĩ lại đi!",
-    "Cơ hội cuối đấy! 😭",
     "Đố em bắt được anh =)))"
 ]
 
