@@ -13,7 +13,7 @@ const noMessages = [
     "Không",
     "Chắc chưa á? 🤔",
     "Thật sự không muốn à... 🥺",
-    "Anh sẽ buồn lắm đấy...",
+    "Mình sẽ buồn lắm đấy...",
     "Đừng ấn nữa mà 😢",
     "Đi mà??? 💔",
     "Đố em bắt được anh =)))"
@@ -23,7 +23,7 @@ const yesTeasePokes = [
     "Thử ấn Không trước xem... có điều bất ngờ đấy 😏",
     "Ấn thử nút Không một lần xem sao 👀",
     "Không ấn là tiếc ráng chịu 😈",
-    "Đố em dám ấn Không 😏"
+    "Đố dám ấn Không 😏"
 ]
 
 let yesTeasedCount = 0
